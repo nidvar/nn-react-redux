@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 
+
 class Posts extends React.Component{
     state={
         post:'loading'
@@ -8,7 +9,6 @@ class Posts extends React.Component{
     componentDidMount(){
         axios.get(`https://jsonplaceholder.typicode.com/posts/${this.props.location.pathname}`)
         .then(response=>{
-            console.log(response.data)
             this.setState({post: response.data})
         })
     }
@@ -23,4 +23,4 @@ class Posts extends React.Component{
     }
 }
 
-export default Posts
+export default (Posts)

@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import {Link} from 'react-router-dom';
+import {connect} from 'react-redux';
 
 class Home extends React.Component{
     state={
@@ -29,6 +30,7 @@ class Home extends React.Component{
         })
     }
     render(){
+        console.log(this.props)
         return(
             <div>
                 <h1>Home</h1>
@@ -38,4 +40,11 @@ class Home extends React.Component{
     }
 }
 
-export default Home
+const mapStateToProps = (state)=>{
+    console.log(state.President)
+    return {
+        state: state.President
+    }
+}
+
+export default connect(mapStateToProps)(Home)
