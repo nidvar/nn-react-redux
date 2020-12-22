@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import {Link} from 'react-router-dom';
 
 class Home extends React.Component{
     state={
@@ -17,10 +18,12 @@ class Home extends React.Component{
         return this.state.json_data.map((data, index)=>{
             if(index<=10){
                 return(
-                    <div key={Math.random()}>
-                        <h2>{data.title}</h2>
-                        <p>{data.body}</p>
-                    </div>
+                    <Link key={Math.random()} to={`/${data.id}`}>
+                        <div className="Post">
+                            <h2>{data.title}</h2>
+                            <p>{data.body}</p>
+                        </div>
+                    </Link>
                 )
             }
         })
